@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+  <data>
+    <record model="ir.ui.view" id="account_fiscal_position_rule_partner_form">
+      <field name="name">account.fiscal.position.rule.partner.order.form</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='state_id']" position="attributes">
+          <attribute name="on_change">onchange_apply_fiscal_rule(state_id, country_id, 'state_id')</attribute>
+        </xpath>
+        <xpath expr="//field[@name='country_id']" position="attributes">
+          <attribute name="on_change">onchange_apply_fiscal_rule(state_id, country_id, 'country_id')</attribute>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</openerp>
